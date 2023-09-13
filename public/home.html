@@ -1,0 +1,42 @@
+{{define "title"}}
+REGISTER
+{{end}}
+
+{{define "style"}}
+<style>
+    body,html {
+        height: 100%;
+    }
+</style>
+{{end}}
+
+{{define "body"}}
+<div class="container-fluid h-100">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <form action="">
+                <!-- Email input -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" aria-describedby="your name..." placeholder="Enter name">
+                </div>
+
+                <!-- Submit button -->
+                <button type="button" id="button" class="btn btn-primary btn-block">Join Chat</button>
+            </form>
+        </div>
+    </div>
+</div>
+{{end}}
+
+{{define "js"}}
+<script>
+    const button = document.getElementById("button")
+    button.addEventListener('click', (e)=>{
+        e.preventDefault()
+        const name = document.getElementById("name")
+        localStorage.setItem("name", name.value)
+        window.location.href = "/chat"
+    })
+</script>
+{{end}}
